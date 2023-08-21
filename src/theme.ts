@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import type {} from "@mui/x-data-grid/themeAugmentation";
 import SawtonIndustrialRegular from './assets/fonts/SawtonIndustrial-Regular.woff2';
 
 export default createTheme({
