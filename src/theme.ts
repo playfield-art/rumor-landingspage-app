@@ -59,6 +59,20 @@ export default createTheme({
         }
       }
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: "var(--white)",
+          borderBottom: "1px solid var(--white)",
+          "&:visited": {
+            color: "var(--white)",
+          },
+          "&:hover": {
+            textDecoration: "none",
+          }
+        }
+      }
+    },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {

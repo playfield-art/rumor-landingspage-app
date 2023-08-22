@@ -1,11 +1,26 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import { useAirtable } from '../hooks/useAirtable';
 
-export const Subscribe = () => {
+export interface SubscribeTranslations {
+  buttonText: string;
+  submittedText: string;
+  exampleEmailText: string;
+}
+
+export interface SubscribeProps {
+  subscribeTranslations: SubscribeTranslations;
+}
+
+export const Subscribe = ({ subscribeTranslations }: SubscribeProps) => {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const { addEmail } = useAirtable();
+  const [ currentSubscribeTranslations, setCurrentSubscribeTranslations ] = useState(subscribeTranslations);
+
+  useEffect(() => {
+    setCurrentSubscribeTranslations(subscribeTranslations);
+  }, [subscribeTranslations]);
 
   /**
    * Check if email is valid
@@ -18,13 +33,13 @@ export const Subscribe = () => {
     <Grid container spacing={2}>
       {submitted &&
         <Grid item xs={12}>
-          <Typography variant='h4' align='center'>Thanks for subscribing!</Typography>
+          <Typography variant='h4' align='center'>{currentSubscribeTranslations.submittedText}</Typography>
         </Grid>
       }
       {!submitted &&
         <>
           <Grid item xs={12} sm={8}>
-            <TextField sx={{ width: "100%"}} value={email} onChange={(e) => setEmail(e.target.value)} placeholder='e.g. rumor@playfield.be' InputLabelProps={{shrink: false}} id="outlined-basic" variant="outlined" />
+            <TextField sx={{ width: "100%"}} value={email} onChange={(e) => setEmail(e.target.value)} placeholder={currentSubscribeTranslations.exampleEmailText} InputLabelProps={{shrink: false}} id="outlined-basic" variant="outlined" />
           </Grid>
           <Grid item xs={12} sm={4}>
             <Button onClick={() => {
@@ -33,7 +48,7 @@ export const Subscribe = () => {
               } else {
                 addEmail(email).then(() => { setSubmitted(true); });
               }
-            }} sx={{ width: "100%"}}>Subscribe</Button>
+            }} sx={{ width: "100%"}}>{currentSubscribeTranslations.buttonText}</Button>
           </Grid>
         </>
       }

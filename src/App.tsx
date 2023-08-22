@@ -1,12 +1,21 @@
 import { ThemeProvider } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from './theme'
-import { Container, Typography, Grid, Box, Stack } from "@mui/material";
+import { Container, Typography, Grid, Box, Stack, Link } from "@mui/material";
 import { Subscribe } from "./components/Subscribe";
 import SmartphoneDummy from './assets/smartphone-dummy.png'
+import translations from './translations.json';
 
 function App() {
+  const [translationIndex, setTranslationIndex] = useState("en");
+  const [currentTranslations, setCurrentTranslations] = useState(translations[translationIndex as keyof typeof translations]);
+
+  useEffect(() => {
+    setCurrentTranslations(translations[translationIndex as keyof typeof translations]);
+  }, [translationIndex]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -15,22 +24,23 @@ function App() {
           <Grid container spacing={4}>
             <Grid item xs={12}>
               <Typography variant="h3">
-                Take me with you...
+                {currentTranslations.title}
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <Grid container spacing={8}>
                 <Grid item sm={7} xs={12}>
                   <Typography paragraph>
-                    Waar droom jij van? Naar welke toekomst ben jij op zoek? Zonder je af in mijn kamers, luister naar mijn stem en beken wat je verlangt. Je bent helemaal alleen, enkel ik kan je horen. Ik verzamel toekomstdromen.
-                  </Typography>
-                  <Typography paragraph>
-                    RUMOR // Unfolding Futures is een installatie die wortels heeft in het idee dat een beeld van een toekomstige, andere wereld botst met onze huidige wereld. Een droom voor de toekomst is soms ook de aankondiging van verandering. Maar wat als blijkt dat de een zijn droom de ander zijn nachtmerrie is?
+                    {currentTranslations.mainContent}
                   </Typography>
                   <Box mt={4} sx={{ padding: "2rem", color: "var(--blue-700)", backgroundColor: 'var(--blue-200)' }}>
                     <Stack direction="column" gap={3}>
-                      <Typography align="center" variant="h4">Share your e-mail and I will keep you informed</Typography>
-                      <Subscribe />
+                      <Typography align="center" variant="h4">{currentTranslations.shareYourEmail}</Typography>
+                      <Subscribe subscribeTranslations={{
+                        buttonText: currentTranslations.subscribe,
+                        submittedText: currentTranslations.subscribeFinished,
+                        exampleEmailText: currentTranslations.exampleMail
+                      }}/>
                     </Stack>
                   </Box>
                 </Grid>
@@ -43,6 +53,11 @@ function App() {
             </Grid>
           </Grid>
         </Container>
+      </Box>
+      <Box mt={4} mb={4} textAlign="center">
+        <Typography>
+          {currentTranslations.disclaimer} <Link href="https://www.playfield.be">playField.</Link>
+        </Typography>
       </Box>
     </ThemeProvider>
   )
