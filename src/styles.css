@@ -1,0 +1,16 @@
+:root {
+  /**
+   * Colors
+   */
+
+  --blue-900: #162345;
+  --blue-800: #223468;
+  --blue-700: #2d468b;
+  --blue-600: #3857af;
+  --blue-500: #4f6ec6;
+  --blue-400: #728bd2;
+  --blue-300: #96a8dd;
+  --blue-200: #b9c5e8;
+  --blue-100: #dce2f4;
+  --white: #ffffff;
+}

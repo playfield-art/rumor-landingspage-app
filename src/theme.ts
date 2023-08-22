@@ -6,11 +6,15 @@ export default createTheme({
     fontFamily: 'Sawton Industrial, Helvetica, Arial, sans-serif',
   },
   palette: {
+    primary: {
+      main: "#253772",
+      contrastText: "#FFFFFF",
+    },
     text: {
       primary: "#FFFFFF",
     },
     background: {
-      default: "#253772",
+      default: "var(--blue-700)",
     }
   },
   components: {
@@ -24,6 +28,51 @@ export default createTheme({
           font-display: swap;
         }
       `,
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "var(--white)",
+          border: "none",
+          backgroundColor: "var(--blue-700)",
+          height: "3.5rem",
+          "&:hover": {
+            backgroundColor: "var(--blue-600)",
+            color: "var(--white)",
+          },
+        }
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          display: "block",
+          color: "var(--blue-700)",
+          fontSize: "1rem",
+          borderRadius: "20px",
+          border: "1px solid var(--blue-700)",
+          padding: "0.7rem 0.5rem",
+          height: "3.5rem"
+        },
+        input: {
+          boxSizing: "border-box",
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          "& fieldset": {
+            border: "none",
+          },
+          "&:hover fieldset": {
+            border: "none",
+          },
+          "&.Mui-focused fieldset": {
+            border: "none",
+          },
+        },
+      },
     },
   },
 });
