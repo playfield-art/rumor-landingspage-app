@@ -1,6 +1,12 @@
 import { createTheme } from "@mui/material/styles";
 import SawtonIndustrialRegular from './assets/fonts/SawtonIndustrial-Regular.woff2';
 
+declare module "@mui/material/Button" {
+  interface ButtonPropsVariantOverrides {
+    language: true;
+  }
+}
+
 export default createTheme({
   typography: {
     fontFamily: 'Sawton Industrial, Helvetica, Arial, sans-serif',
@@ -30,6 +36,19 @@ export default createTheme({
       `,
     },
     MuiButton: {
+      variants: [
+        {
+          props: { variant: "language" },
+          style: {
+            minWidth: 0,
+            padding: 0,
+            backgroundColor: "var(--blue-700)",
+            "&:hover": {
+              backgroundColor: "var(--blue-700)",
+            },
+          },
+        },
+      ],
       styleOverrides: {
         root: {
           color: "var(--white)",
@@ -43,6 +62,7 @@ export default createTheme({
         }
       }
     },
+
     MuiInputBase: {
       styleOverrides: {
         root: {

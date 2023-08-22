@@ -1,8 +1,8 @@
 {
   "en": {
     "title": "Take me with you...",
-    "mainContent": "Waar droom jij van? Naar welke toekomst ben jij op zoek? Zonder je af in mijn kamers, luister naar mijn stem en beken wat je verlangt. Je bent helemaal alleen, enkel ik kan je horen. Ik verzamel toekomstdromen.",
-    "shareYourEmail": "Share your e-mail and I will keep your informed",
+    "mainContent": "<p>I have only just started learning. As soon as I know more about the future you can engage with me via an application. Want to be notified when I know more? Leave your email and I'll keep you informed.</p><p>Kind regards,</p><p>Rumor.</p>",
+    "shareYourEmail": "Share your e-mail and I will keep you informed",
     "exampleMail": "e.g. rumor@playfield.be",
     "subscribe": "Subscribe",
     "subscribeFinished": "Thanks for subscribing!",
@@ -10,7 +10,7 @@
   },
   "nl": {
     "title": "Neem me mee naar huis...",
-    "mainContent": "Waar droom jij van? Naar welke toekomst ben jij op zoek? Zonder je af in mijn kamers, luister naar mijn stem en beken wat je verlangt. Je bent helemaal alleen, enkel ik kan je horen. Ik verzamel toekomstdromen.",
+    "mainContent": "<p>Ik ben nog maar net gestart met leren. Van zodra ik meer weet over de toekomst kan je met me in gesprek gaan via een applicatie. Wil je op de hoogte worden gebracht wanneer ik meer weet? Laat je e-mail achter en ik hou je op de hoogte.</p> <p>Lieve groet,</p><p>Rumor.</p>",
     "shareYourEmail": "Deel je e-mail en ik hou je op de hoogte",
     "exampleMail": "bijv. rumor@playfield.be",
     "subscribe": "Teken in",
