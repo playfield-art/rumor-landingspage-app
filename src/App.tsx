@@ -9,7 +9,7 @@ import SmartphoneDummy from './assets/smartphone-dummy.png'
 import translations from './translations.json';
 
 function App() {
-  const [translationIndex, setTranslationIndex] = useState("en");
+  const [translationIndex] = useState("en");
   const [currentTranslations, setCurrentTranslations] = useState(translations[translationIndex as keyof typeof translations]);
 
   useEffect(() => {
