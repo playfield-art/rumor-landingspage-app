@@ -13,7 +13,7 @@ import parse from 'html-react-parser';
 
 
 function App() {
-  const [translationIndex, setCurrentTranslationIndex] = useState("en");
+  const [translationIndex, setCurrentTranslationIndex] = useState("nl");
   const [currentTranslations, setCurrentTranslations] = useState(translations[translationIndex as keyof typeof translations]);
   const isSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
